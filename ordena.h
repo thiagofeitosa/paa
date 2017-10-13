@@ -1,10 +1,79 @@
 #ifndef ORDENA_H_INCLUDED
 #define ORDENA_H_INCLUDED
+#define MAX_STR 100
 #include <time.h>
 
 clock_t tempoInicio, tempoFim;
 FILE *gnuplot;
 unsigned long  troca=0,comparacao=0;
+
+
+///---------------------------------------------------------------------------------------
+void createFiles(long int n)
+{
+  long int i;
+  srand(time(NULL));   
+  char filename[MAX_STR];
+  snprintf(filename, MAX_STR, "%ld", n);
+  strcat(filename,"-crescente.txt");
+
+  FILE * f;
+  f = fopen (filename,"w+");
+  if (f != NULL)
+  {
+    for (i = 0; i < n; i++)
+    {
+      fprintf(f, "%ld\n ",i+1);
+    }
+
+    fclose (f);
+  }
+
+
+  snprintf(filename, MAX_STR, "%ld",n);
+  strcat(filename,"-random.txt");
+
+  FILE * fs;
+  fs = fopen (filename,"w+");
+  if (fs != NULL)
+  {
+    for (i = 0; i < n; i++)
+    {
+      fprintf(fs, "%ld\n ",rand() % (n+1));
+    }
+
+    fclose (fs);
+  } 
+
+  snprintf(filename, MAX_STR, "%ld",n);
+  strcat(filename,"-decrescente.txt");
+
+  FILE * fr;
+  fr = fopen (filename,"w+");
+  if (fs != NULL)
+  {
+    for (i = n; i > 0; i--)
+    {
+      fprintf(fr, "%ld\n ",i);
+    }
+
+    fclose (fr);
+  } 
+
+}
+///---------------------------------------------------------------------------------------
+void createAllFiles()
+{
+  createFiles(100);
+  createFiles(1000);
+  createFiles(10000);
+  createFiles(50000);
+  createFiles(100000);
+  //createFiles(200000);
+  //createFiles(500000);
+  //createFiles(1000000);
+  printf("Arquivos criados.\n");
+}
 
 ///----------------------------------------------------------------------------------------
 int *LendoArquivo(char *nomeArq, long int *tamanho)
@@ -21,7 +90,7 @@ int *LendoArquivo(char *nomeArq, long int *tamanho)
 
     if (!arquivo)
     {
-        printf("Este arquivo nao existe\n");
+        printf("Arquivo nao existe\n");
         exit(0);
     }
 
@@ -266,7 +335,7 @@ void GravarArquivo(int *vetor, long int tamanho)
     FILE *gravar;
     char Nome_arquivo[200];
 
-    sprintf(Nome_arquivo, "Vetor-%ld-Ordenado.txt", tamanho);
+    sprintf(Nome_arquivo, "v-%ld-Ordenado.txt", tamanho);
 
     gravar = fopen(Nome_arquivo,"w");
     for (i = 0; i < tamanho; i++)
@@ -295,8 +364,8 @@ void printResultados(){
     fprintf( gnuplot, "%ld\n", troca);
 
     //mostas as trocas e compraçoes no console
-     printf("comparacao: %ld\n Trocas %ld\n",comparacao,troca);
-     printf("Tempo: %f\n", (float)(tempoFim - tempoInicio)/CLOCKS_PER_SEC);
+     //printf("comparacao: %ld\n Trocas %ld\n",comparacao,troca);
+     //printf("Tempo: %f\n", (float)(tempoFim - tempoInicio)/CLOCKS_PER_SEC);
 }
 
 

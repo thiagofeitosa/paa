@@ -26,16 +26,10 @@ set grid
 
 plot \
 	"relatorios/shell-sort-rond.dat" title "Shell Sort" w linespoints,\
-        "relatorios/bubble-sorte-rond.dat" title "Bubble Sort" w linespoints, \
-        "relatorios/Select-sort-rond.dat" title "Select Sort" w linespoints,\
+    "relatorios/bubble-sorte-rond.dat" title "Bubble Sort" w linespoints, \
+    "relatorios/Select-sort-rond.dat" title "Select Sort" w linespoints,\
 	"relatorios/Insert-sort-rond.dat" title "Insert Sort" w linespoints,\
 	"relatorios/merge-sort-rand.dat" title "Merge Sort" w linespoints,\
 	"relatorios/quick-sort-rand.dat" title "Quick Sort" w linespoints
-	
-	
-#
-# Para que voce possa chamar o gnuplot diretamente de dentro de seu 
-# programa em C usando o comando system(). Se voce nao colocar uma
-# pausa no final de seu plot, a janela fecha imediatamente apos 
-# ter sido desenhada.
-pause -1 "Tecle enter para continuar com outro Algoritmo"
+
+pause -1 

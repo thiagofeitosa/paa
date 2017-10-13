@@ -28,11 +28,5 @@ plot \
 	"relatorios/shell-sort-rond.dat" title "Randomicos" w linespoints,\
         "relatorios/shell-sort-ord.dat" title "Ordenados" w linespoints, \
         "relatorios/shell-sort-inv.dat" title "Invertidos" w linespoints
-	
-	
-#
-# Para que voce possa chamar o gnuplot diretamente de dentro de seu 
-# programa em C usando o comando system(). Se voce nao colocar uma
-# pausa no final de seu plot, a janela fecha imediatamente apos 
-# ter sido desenhada.
-pause -1 "Tecle enter para continuar com outro Algoritmo"
+
+pause -1

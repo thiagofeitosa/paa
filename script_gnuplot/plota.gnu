@@ -18,7 +18,7 @@ set xlabel "Tamanho do Conjunto de Dados"
 set ylabel "Tempo"
 #
 #Seta posicao em coordenadas dos dados, onde vao aparecer os titulos
-#Ist voce DEVE adaptar aos seus dados
+#Isto voce DEVE adaptar aos seus dados
 set key default
 #
 #Seta grade
@@ -28,11 +28,5 @@ plot \
 	"relatorios/bubble-sorte-rond.dat" title "Randomicos" w linespoints,\
         "relatorios/bubbleSorte-ord.dat" title "Ordenados" w linespoints, \
         "relatorios/bubbleSorte-inv.dat" title "Invertidos" w linespoints
-	
-	
-#
-# Para que voce possa chamar o gnuplot diretamente de dentro de seu 
-# programa em C usando o comando system(). Se voce nao colocar uma
-# pausa no final de seu plot, a janela fecha imediatamente apos 
-# ter sido desenhada.
-pause -1 "Tecle enter para continuar com outro Algoritmo"
+
+pause -1
