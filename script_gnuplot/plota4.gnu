@@ -14,8 +14,6 @@ set autoscale
 set style data linespoints
 
 
-
-
 set xlabel "Tamanho do Conjunto de Dados"
 set ylabel "Tempo"
 #

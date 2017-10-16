@@ -14,7 +14,7 @@ void createFiles(long int n)
   long int i;
   srand(time(NULL));   
   char filename[MAX_STR];
-  snprintf(filename, MAX_STR, "%ld", n);
+  snprintf(filename, MAX_STR, "vetores/%ld", n);
   strcat(filename,"-crescente.txt");
 
   FILE * f;
@@ -30,7 +30,7 @@ void createFiles(long int n)
   }
 
 
-  snprintf(filename, MAX_STR, "%ld",n);
+  snprintf(filename, MAX_STR, "vetores/%ld",n);
   strcat(filename,"-random.txt");
 
   FILE * fs;
@@ -45,7 +45,7 @@ void createFiles(long int n)
     fclose (fs);
   } 
 
-  snprintf(filename, MAX_STR, "%ld",n);
+  snprintf(filename, MAX_STR, "vetores/%ld",n);
   strcat(filename,"-decrescente.txt");
 
   FILE * fr;
@@ -110,7 +110,6 @@ int *LendoArquivo(char *nomeArq, long int *tamanho)
     while (fgets(linha,200,arquivo))
     {
         //percorrer arquivo para gravar numeros no vetor
-
         vetor[i] = atoi(linha);
         i++;
     }
@@ -118,7 +117,6 @@ int *LendoArquivo(char *nomeArq, long int *tamanho)
     fclose(arquivo);
     return vetor;
 }
-
 ///----------------------------------------------------------------------------------------
 void BubbleSort(int *vetor, long int n)
 {
@@ -225,7 +223,7 @@ void insertionSort(int *vetor, long int n)
     }
     tempoFim = clock();
 }
-//=========================================================================================
+//------------------------------------------------------------------------------------------------
 void mergee (int *vetor,int v2[],int inicio1, int inicio2,int fim2)
 {
     long int n1=inicio1;
@@ -327,7 +325,7 @@ void quicksort(int *vetor, int esq, int dir) {
     tempoFim = clock();
 }
 
-///----------------------------------------------------------------------------------------
+
 //Essa função grava o vetor ordenando em um arquivo txt
 void GravarArquivo(int *vetor, long int tamanho)
 {
@@ -335,7 +333,7 @@ void GravarArquivo(int *vetor, long int tamanho)
     FILE *gravar;
     char Nome_arquivo[200];
 
-    sprintf(Nome_arquivo, "v-%ld-Ordenado.txt", tamanho);
+    sprintf(Nome_arquivo, "vetores/%ld-Ordenado.txt", tamanho-1);
 
     gravar = fopen(Nome_arquivo,"w");
     for (i = 0; i < tamanho; i++)
@@ -344,26 +342,15 @@ void GravarArquivo(int *vetor, long int tamanho)
         fflush(gravar);
     }
     fclose(gravar);
-    printf("\n");
 }
-void MostarVetor(int *vetor, long int tamanho)
-{//funcao responsavel por mostar no console.
-    long int i;
 
-    for (i = 0; i<tamanho; i++)
-    {
-        printf("%d\t", vetor[i]);
-    }
-    printf("\n");
-}
-///----------------------------------------------------------------------------------------
 void printResultados(){
     //grava os resultados de comparações, trocas e tempo de cpu em um arquivo.
     fprintf( gnuplot," %f\t", (float)(tempoFim - tempoInicio)/CLOCKS_PER_SEC);
     fprintf( gnuplot, "%ld\t\t",comparacao);
     fprintf( gnuplot, "%ld\n", troca);
 
-    //mostas as trocas e compraçoes no console
+    //printa no console informações
      //printf("comparacao: %ld\n Trocas %ld\n",comparacao,troca);
      //printf("Tempo: %f\n", (float)(tempoFim - tempoInicio)/CLOCKS_PER_SEC);
 }

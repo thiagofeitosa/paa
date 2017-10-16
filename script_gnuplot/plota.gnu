@@ -25,7 +25,7 @@ set key default
 set grid
 
 plot \
-	"relatorios/bubble-sorte-rond.dat" title "Randomicos" w linespoints,\
+	"relatorios/bubble-sorte-rand.dat" title "Randomicos" w linespoints,\
         "relatorios/bubbleSorte-ord.dat" title "Ordenados" w linespoints, \
         "relatorios/bubbleSorte-inv.dat" title "Invertidos" w linespoints
 

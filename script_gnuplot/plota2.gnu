@@ -25,7 +25,7 @@ set key default
 set grid
 
 plot \
-	"relatorios/Select-sort-rond.dat" title "Randomicos" w linespoints,\
+	"relatorios/Select-sort-rand.dat" title "Randomicos" w linespoints,\
         "relatorios/Select-sort-ord.dat" title "Ordenados" w linespoints, \
         "relatorios/Select-sort-inv.dat" title "Invertidos" w linespoints
 
